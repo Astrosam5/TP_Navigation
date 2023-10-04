@@ -3,7 +3,10 @@ package projet.java.iot.mouly.tp_navigation.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.darkColors
+import androidx.compose.material.lightColors
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -70,6 +73,26 @@ fun TP_NavigationTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        content = content
+    )
+}
+
+
+@Composable
+fun BottomNavBarDemoTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable() () -> Unit
+) {
+    val colors = if (darkTheme) {
+        DarkColorScheme
+    } else {
+        LightColorScheme
+    }
+
+    androidx.compose.material.MaterialTheme(
+        colors = darkColors(),
+        typography = androidx.compose.material.Typography(),
+        shapes = androidx.compose.material.Shapes(),
         content = content
     )
 }
